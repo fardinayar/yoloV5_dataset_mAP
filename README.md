@@ -19,5 +19,5 @@ Similar to the above except that each line represents:
 `python eval.py -gt {ground truth dir} -pr {predictions dir} -trh {threshold}
 `
 ### example
-`python eval.py -gt test -pr preds -trh 0.75
+`python eval.py -gt toy_example/test -pr toy_example/preds -trh 0.75
 `
