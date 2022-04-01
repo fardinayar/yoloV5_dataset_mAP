@@ -28,7 +28,7 @@ trh = float(args.trh)
 
 preds = []
 for pr in glob.glob(os.path.join(pred_dir,'*.txt')):
-    data = open(pr,'r').read().split('\n')
+    data = open(pr,'r').read().rstrip('\n').split('\n')
     labels = np.array([line.split(' ')[0] for line in data]).astype('int')
     scores = np.array([line.split(' ')[1] for line in data]).astype('float')
     boxes = np.array([line.split(' ')[2:] for line in data]).astype('float')
@@ -44,7 +44,7 @@ for pr in glob.glob(os.path.join(pred_dir,'*.txt')):
 
 grt = []
 for gt in glob.glob(os.path.join(gt_dir,'*.txt')):
-    data = open(gt,'r').read().split('\n')
+    data = open(gt,'r').read().rstrip('\n').split('\n')
     labels = np.array([line.split(' ')[0] for line in data]).astype('int')
     boxes = np.array([line.split(' ')[1:] for line in data]).astype('float')
     boxes[:,[0,2]] *= 1920
